@@ -24,4 +24,9 @@ $(document).ready(function(){
 			});
 	};
 
+	$("#searchButton").on('click', function(){
+		search_query = $("#movieInput").val();
+		search_limit = $("#numberInput").val();
+		getMovie(search_query, search_limit);
+	});
 });

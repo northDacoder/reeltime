@@ -34,6 +34,44 @@
 		        </div><!--/.navbar-collapse -->
 		      </div>
 		    </div>
+
+		    <div class="jumbotron" id="jumboHeader">
+				<h1>Find your favorite flick</h1>
+				<div class="form-group">
+					<div class="col-sm-3" style="padding: 2px;">
+						<input placeholder="Movie Title" id="movieInput" class="input-lg form-control" >
+					</div>
+					<div class="col-sm-3" style="padding: 2px;">
+						<input placeholder="Number of results" id="numberInput" class="input-lg form-control" >
+					</div>
+					<div class="col-sm-2" style="padding: 2px;">
+						<button type="button" class="btn btn-info btn-lg btn-block" id="searchButton">Search <i class="fa fa-search"></i></button>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row" id="results">
+				<ul class="col-xs-12 movie col-sm-4 well">
+					<img src="{{ item.posters.profile }}" class="img-responsive" style="height: 51px; width: 51px; border-radius: 70px;">
+					<h3 class="header" id="movieTitle">{{ item.title }}</h3>
+					<li>
+						<h1 class="btn btn-success">Critics rating: {{ item.ratings.critics_score}} </h1>
+						<h1 class="btn btn-success">Tomatoes Rating: {{ item.ratings.audience_score}} </h1>
+					</li>
+					<li><h1 class="btn btn-info">Year: {{ item.year }}</h1></li>
+					<li><h1 class="btn btn-danger">Rating: {{ item.mpaa_rating }}</h1></li>
+					<li><h1 class="btn btn-primary">{{ item.runtime }} Minutes</h1></li>
+					<li>Synopsis: <p>{{ item.synopsis }}</p></li>
+					<li>
+						<ul ng-repeat="actor in item.abridged_cast" style="list-style-type: none;">
+							<li>{{ actor.name }} - {{ actor.characters }}</li>
+						</ul>
+					</li>
+				</ul>
+
+			</div>
+
 		</div>
 
 	</body>
