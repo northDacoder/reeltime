@@ -22,15 +22,24 @@ $(document).ready(function(){
 		console.log(movies.length);
 
 		for (var i = 0; i < movies.length; i++){
+			
+
 			var movie = {};
-			movie = movies[i];
+			movie['title'] = movies[i].title;
 			movie['year'] = movies[i].year;
-			movie['rated'] = movies[i].rated;
+			movie['rated'] = movies[i].mpaa_rating;
 
 			console.log(movie);
+
 			all_movies.push(movie);
 
-			$("#results").append("<h1>" + movies.year + "</h1>");
+			$("#results").append(
+				'div class="col-sm-4">' + 
+				'<h1>Title: ' + movie.title + '</h1>' + 
+				'<h2>Year: ' + movie.year + '</h2>' + 
+				'<h3>Rating: ' + movie.rated + '</h3>' +
+				'</div>'
+			);
 		}
 		
 	};
