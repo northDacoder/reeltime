@@ -20,7 +20,7 @@ body {background: #eee; font-family: 'Open Sans', sans-serif; font-weight: 100;}
 	height: 250px;
 }
 
-#results {margin-top: 380px; background: #eee; padding: 30px 50px;}
+#results {margin-top: 420px; background: #eee; padding: 30px 50px;}
 .movie {background: white; padding: 30px; list-style-type: none;}
 
 #movieTitle {font-family: 'Open Sans', sans-serif; font-weight: 100;}

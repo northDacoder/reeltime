@@ -2,38 +2,59 @@ $(document).ready(function(){
 
 	var movie_title = "";
 	var page_limit = 5;
-	var key: 'dpjxf3xsjbpj5wpmduveeseb';
-	var movie_json;
+	var apikey = 'dpjxf3xsjbpj5wpmduveeseb';
+	var all_movies = [];
 
-	movie_json['year'] = $("#year").html();
-	movie_json['rated'] = $("#rated").html();
-	movie_json['name'] = $("#movieTitle").html();
-	movie_json['actorName'] = $("#actorName").html();
-	movie_json['characters'] = $("#actorCharacters").html();
+	var year = $("#year").html();
+	var rated = $("#rated").html();
+	var name = $("#movieTitle").html();
+	var actor = $("#actorName").html();
+	var characters = $("#actorCharacters").html();
+	var movie_html = $("#results").html();
 
-	console.log(movie_json);
+
+	var loadHTML = function(response){
+
+
+		console.log('loadHTML function called');
+		var movies = response.movies;
+		console.log(movies);
+		console.log(movies.length);
+
+		for (var i = 0; i < movies.length; i++){
+			var movie = {};
+			movie = movies[i];
+			movie['year'] = movies[i].year;
+			movie['rated'] = movies[i].rated;
+
+			console.log(movie);
+			all_movies.push(movie);
+
+			$("#results").append("<h1>" + movies.year + "</h1>");
+		}
+		
+	};
 
 	var getMovie = function(query, nummovies){
+			console.log('getMovie function called');
 			movie_title = query;
 		 	page_limit = nummovies-1;
 
-
 			$.ajax({
-				url: 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=:key&q=:movie_title&page_limit=:limit', 
+				url: 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=' + apikey + '&q=' + movie_title + '&page_limit=' + page_limit, 
 				type: 'GET',
-				data: 'JSONP',
+				dataType: 'JSONP',
 				success: function(response){
-					movie_json = response;
-					movie_json.name = response.name;
-					movie_json.year = response.year;
-					movie_json.rated = response.mpaa_rating;
+					console.log(response);
+					loadHTML(response);
 				}
 			});
 	};
 
-	$("#searchButton").on('click', function(){
+	$("button#searchButton").on('click', function(){
+		alert('This is working');
 		movie_title = $("#movieInput").val();
 		page_limit = $("#numberInput").val();
-		getMovie(search_query, search_limit);
+		getMovie(movie_title, page_limit);
 	});
 });
