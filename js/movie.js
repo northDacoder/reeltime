@@ -34,10 +34,14 @@ $(document).ready(function(){
 			all_movies.push(movie);
 
 			$("#results").append(
-				'<div class="col-sm-4">' + 
-				'<h1>Title: ' + movie.title + '</h1>' + 
-				'<h2>Year: ' + movie.year + '</h2>' + 
-				'<h3>Rating: ' + movie.rated + '</h3>' +
+				'<div class="col-sm-4 panel panel-default">' + 
+					'<div class="panel-heading">' +
+						'<h1 class="panel-title">' + Title: ' + movie.title + '</h1>' + 
+					'</div>' +
+					'<div class="panel-body">' +
+						'<h2>Year: ' + movie.year + '</h2>' + 
+						'<h3>Rating: ' + movie.rated + '</h3>' +
+					'</div>' +
 				'</div>'
 			);
 		}
