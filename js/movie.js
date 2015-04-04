@@ -34,7 +34,7 @@ $(document).ready(function(){
 			all_movies.push(movie);
 
 			$("#results").append(
-				'div class="col-sm-4">' + 
+				'<div class="col-sm-4">' + 
 				'<h1>Title: ' + movie.title + '</h1>' + 
 				'<h2>Year: ' + movie.year + '</h2>' + 
 				'<h3>Rating: ' + movie.rated + '</h3>' +
