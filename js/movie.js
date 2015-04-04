@@ -34,7 +34,7 @@ $(document).ready(function(){
 			all_movies.push(movie);
 
 			$("#results").append(
-				'<div class="col-sm-4 panel panel-default">' + 
+				'<div class="col-sm-6 col-sm-offset-3 panel panel-primary">' + 
 					'<div class="panel-heading">' +
 						'<h1 class="panel-title">Title: ' + movie.title + '</h1>' + 
 					'</div>' +
