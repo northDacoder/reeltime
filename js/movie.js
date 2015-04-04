@@ -66,4 +66,6 @@ $(document).ready(function(){
 		page_limit = $("#numberInput").val();
 		getMovie(movie_title, page_limit);
 	});
+	
+	getMovie("Star Wars", 20);
 });
