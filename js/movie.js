@@ -36,7 +36,7 @@ $(document).ready(function(){
 			$("#results").append(
 				'<div class="col-sm-6 col-sm-offset-3 panel panel-primary">' + 
 					'<div class="panel-heading">' +
-						'<h1 class="panel-title">Title: ' + movie.title + '</h1>' + 
+						'<h1 class="panel-title">' + movie.title + '</h1>' + 
 					'</div>' +
 					'<div class="panel-body">' +
 						'<h2>Year: ' + movie.year + '</h2>' + 
